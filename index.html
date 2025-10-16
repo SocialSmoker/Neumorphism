@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generador Neomórfico Interactivo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="shell">
+      <h1 class="title">Generador Neomórfico</h1>
+      <p class="note">Crea tu propio diseño, ajusta y copia el CSS en tiempo real</p>
+
+      <div class="generator">
+        <div class="preview neo" id="previewBox">Vista previa</div>
+
+        <div class="controls">
+          <label>🎨 Color base
+            <input type="color" id="baseColor" value="#e8ecf3">
+          </label>
+
+          <label>🌗 Intensidad de sombra (offset)
+            <input type="range" id="offset" min="2" max="30" value="10">
+          </label>
+
+          <label>💨 Desenfoque (blur)
+            <input type="range" id="blur" min="4" max="40" value="16">
+          </label>
+
+          <label>🔘 Radio del borde
+            <input type="range" id="radius" min="4" max="40" value="16">
+          </label>
+
+          <div class="actions">
+            <button id="toggleInsetBtn" class="btn" aria-pressed="false">Hundido (Inset): OFF</button>
+            <button id="randomBtn" class="btn">Aleatorio 🎲</button>
+            <button id="copyBtn" class="btn accent">Copiar CSS</button>
+          </div>
+        </div>
+
+        <textarea id="output" readonly></textarea>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

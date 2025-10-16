@@ -1,0 +1,107 @@
+:root{
+  --base:#e8ecf3;
+  --shadow-dark:#c7ccd6;
+  --shadow-light:#ffffff;
+  --radius:16px;
+  --offset:10px;
+  --blur:16px;
+  --text:#2b2f36;
+  --muted:#727a86;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  background:var(--base);
+  color:var(--text);
+  line-height:1.45;
+  display:flex; align-items:center; justify-content:center;
+}
+
+.shell{ text-align:center; width:min(960px,94vw); }
+.title{ margin:0 0 6px; font-size:clamp(22px,3.4vw,36px); }
+.note{ margin:0 0 18px; color:var(--muted); }
+
+.generator{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+  align-items:start;
+}
+
+.preview{
+  padding:60px 20px;
+  border-radius:var(--radius);
+  background:var(--base);
+  box-shadow:
+    var(--offset) var(--offset) var(--blur) var(--shadow-dark),
+    calc(var(--offset) * -1) calc(var(--offset) * -1) var(--blur) var(--shadow-light);
+  transition: all .15s ease;
+  text-align:center;
+  font-weight:600;
+}
+
+.controls{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  text-align:left;
+}
+
+.controls label{
+  font-size:14px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+input[type="range"]{ accent-color:#2b2f36; }
+input[type="color"]{ width:100%; height:36px; border:none; border-radius:8px; }
+
+.actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+
+.btn{
+  padding:10px 14px;
+  background:var(--base);
+  border:none;
+  border-radius:16px;
+  cursor:pointer;
+  font-weight:700;
+  box-shadow:6px 6px 12px var(--shadow-dark),
+             -6px -6px 12px var(--shadow-light);
+  transition:.15s ease;
+}
+.btn:active{
+  box-shadow:inset 6px 6px 12px var(--shadow-dark),
+             inset -6px -6px 12px var(--shadow-light);
+}
+.btn[aria-pressed="true"]{ /* estado ON del toggle inset */
+  box-shadow:inset 6px 6px 12px var(--shadow-dark),
+             inset -6px -6px 12px var(--shadow-light);
+}
+.btn.accent{
+  background:linear-gradient(135deg,#ffffff,#eff3f9);
+}
+
+textarea{
+  grid-column:1 / span 2;
+  width:100%;
+  height:180px;
+  resize:none;
+  padding:12px;
+  border:none;
+  border-radius:16px;
+  background:#f4f6fb;
+  color:#2b2f36;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;
+  box-shadow:inset 4px 4px 8px var(--shadow-dark),
+             inset -4px -4px 8px var(--shadow-light);
+}
+
+/* Responsivo */
+@media(max-width:780px){
+  .generator{ grid-template-columns:1fr; }
+}
